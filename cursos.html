@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.css">
     <link rel="stylesheet" href="./assets/css/stylesMenu.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <title>Panel de Administración - University Match</title>
+    <title>Cursos</title>
     <link rel="stylesheet" href="./assets/css/Esta.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/styles.css">
@@ -78,10 +78,12 @@
               <!-- Header con Logotipo y el botón hamburguesa para móviles -->
               <header class="col-12 d-flex justify-content-between align-items-center p-3 fondoheader">
                 <div class="logo">
-                    <img src="./assets/img/logo.jpg" alt="Logo" class="img-fluid" style="max-height: 50px;">
+                    <a href="dashboard.html">
+                        <img src="./assets/img/logo.jpg" alt="Logo" class="img-fluid" style="max-height: 50px;">
+                    </a>
                 </div>
                 <div class="header-title text-white">
-                    <h5 class="m-0">University Match - Panel de Administración</h5>
+                    <h5 class="m-0">University Match - Panel de Universidades</h5>
                 </div>
                 <button class="navbar-toggler" type="button" id="menuToggle" aria-expanded="false">
                     <span class="navbar-toggler-icon"><i class="fa-solid fa-bars"></i></span>
@@ -94,12 +96,27 @@
                     <ul class="nav flex-column">
                         <li class="nav-item">
                             <a class="nav-link" href="dashboard.html">
+                                <i class="fas fa-tachometer-alt"></i> Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="universidades.html">
                                 <i class="fa-solid fa-school"></i> Universidades
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" href="cursos.html">
-                                <i class="fas fa-cogs"></i> Cursos
+                                <i class="fas fa-clipboard-list"></i> Cursos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Estadisticas.html">
+                                <i class="fas fa-chart-pie"></i> Estadísticas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Bitacora.html">
+                                <i class="fas fa-book"></i> Bitácora de Movimientos
                             </a>
                         </li>
                     </ul>
@@ -165,7 +182,7 @@
                             </div>
 
                             <!-- Botón de envío -->
-                            <button type="submit" class="btn btn-primary">Registrar Curso</button>
+                            <button type="submit" class="btn custom-btn">Registrar Curso</button>
                         </form>
                     </div>
                 </div>

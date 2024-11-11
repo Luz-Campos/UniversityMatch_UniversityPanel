@@ -26,11 +26,25 @@ h4 {
 }
 
 .chart-container {
+    display: flex;
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 10px;
     padding: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra ligera */
+    justify-content: center;
+    align-items: center;
+}
+
+.chart-container2 {
+    display: flex;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra ligera */
+    justify-content: center;
+    align-items: center;
 }
 
 p.text-muted {
@@ -56,6 +70,10 @@ p.text-muted {
     .chart-container {
         padding: 10px;
     }
+
+    .chart-container2 {
+        padding: 10px;
+    }
 }
 
 @media (max-width: 576px) {
@@ -73,6 +91,10 @@ p.text-muted {
     }
 
     .chart-container {
+        padding: 8px;
+    }
+
+    .chart-container2 {
         padding: 8px;
     }
 }
