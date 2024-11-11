@@ -1,251 +1,314 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.css">
-    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/styles.css"> <!-- Referencia al nuevo archivo de estilos -->
     <link rel="stylesheet" href="./assets/css/stylesMenu.css">
     <link rel="stylesheet" href="./assets/css/dash.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <title>Panel de Administración - University Match</title>
+    <title>Dashboard</title>
+    <!-- Agregar Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        main {
-            background-color: #f8f9fa;
-            padding: 30px;
-            border-radius: 10px;
-        }
-
-        main #dashboard {
-            background-color: #fff;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        main h2.titulo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #343a40;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        main h3 {
-            color: #0056b3;
-            font-weight: bold;
-        }
-
-        main .form-label {
-            font-weight: 500;
-            color: #495057;
-        }
-
-        main .form-control {
-            border-radius: 5px;
-            border: 1px solid #ced4da;
-        }
-
-        main .form-control:focus {
-            border-color: #80bdff;
-            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-        }
-
-        main .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
-            font-weight: 600;
-        }
-
-        main .btn-secondary {
-            margin-top: 10px;
-        }
-
-        /* Estilos para los formularios de carrera */
-        .carrera-form-container {
-            border: 1px solid #ced4da;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-            background-color: #f9f9f9;
-        }
-
-        .carrera-form-container h4 {
-            margin-bottom: 20px;
-            font-size: 1.2rem;
-            color: #007bff;
-        }
-    </style>
 </head>
 
 <body>
     <div class="container-fluid">
         <div class="row">
-
-
             <!-- Header con Logotipo y el botón hamburguesa para móviles -->
             <header class="col-12 d-flex justify-content-between align-items-center p-3 fondoheader">
                 <div class="logo">
-                    <img src="./assets/img/logo.jpg" alt="Logo" class="img-fluid" style="max-height: 50px;">
+                    <a href="dashboard.html">
+                        <img src="./assets/img/logo.jpg" alt="Logo" class="img-fluid" style="max-height: 50px;">
+                    </a>
                 </div>
                 <div class="header-title text-white">
-                    <h5 class="m-0">University Match - Panel de Administración</h5>
+                    <h5 class="m-0">University Match - Panel de Universidades</h5>
                 </div>
+
+                <!-- Botón de menú hamburguesa para pantallas pequeñas -->
                 <button class="navbar-toggler" type="button" id="menuToggle" aria-expanded="false">
                     <span class="navbar-toggler-icon"><i class="fa-solid fa-bars"></i></span>
                 </button>
             </header>
 
-
+            <!-- Sidebar -->
             <nav id="sidebar" class="col-md-2 d-md-block sidebar">
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
                             <a class="nav-link active" href="dashboard.html">
+                                <i class="fas fa-tachometer-alt"></i> Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="universidades.html">
                                 <i class="fa-solid fa-school"></i> Universidades
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="cursos.html">
-                                <i class="fas fa-cogs"></i> Cursos
+                                <i class="fas fa-clipboard-list"></i> Cursos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Estadisticas.html">
+                                <i class="fas fa-chart-pie"></i> Estadísticas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Bitacora.html">
+                                <i class="fas fa-book"></i> Bitácora de Movimientos
                             </a>
                         </li>
                     </ul>
                 </div>
             </nav>
 
+            <!-- Main Content -->
             <main role="main" class="col-md-9 ms-sm-auto col-lg-10 px-4">
                 <div class="container">
                     <div class="row" id="dashboard">
-                        <h2 class="titulo my-4">Registro de Universidades</h2>
+                        <h2 class="titulo">Dashboard</h2>
+                        <p>Visión general de las métricas clave de tu universidad en University Match, proporcionando información detallada sobre el número de inscripciones de estudiantes, usuarios registrados, visitas a la web y el progreso en el registro de tu universidad en la plataforma. Obtén un análisis mensual de la actividad, la interacción de los estudiantes y el crecimiento de tu presencia online.</p>
 
-                        <form class="row g-3">
-                            <div class="col-md-12">
-                                <label for="descripcion" class="form-label">Descripción</label>
-                                <textarea class="form-control" id="descripcion" rows="3" required></textarea>
-                            </div>
-
-                            <div class="col-md-12">
-                                <label for="ubicacion" class="form-label">Ubicación</label>
-                                <input type="text" class="form-control" id="ubicacion" required>
-                            </div>
-
-                            <div class="col-md-12">
-                                <label for="infoGeneral" class="form-label">Información General</label>
-                                <textarea class="form-control" id="infoGeneral" rows="3" required></textarea>
-                            </div>
-
-                            <div class="col-md-6">
-                                <label for="mision" class="form-label">Misión</label>
-                                <textarea class="form-control" id="mision" rows="2" required></textarea>
-                            </div>
-
-                            <div class="col-md-6">
-                                <label for="vision" class="form-label">Visión</label>
-                                <textarea class="form-control" id="vision" rows="2" required></textarea>
-                            </div>
-
-                            <div class="col-md-12">
-                                <label for="valores" class="form-label">Valores</label>
-                                <textarea class="form-control" id="valores" rows="2" required></textarea>
-                            </div>
-
-                            <div class="col-md-6">
-                                <label for="costoMatricula" class="form-label">Costo de Matrícula</label>
-                                <input type="number" class="form-control" id="costoMatricula" required>
-                            </div>
-
-                            <div class="col-md-6">
-                                <label for="imagenes" class="form-label">Imágenes</label>
-                                <input type="file" class="form-control" id="imagenes" multiple>
-                            </div>
-
-                            <div class="col-md-6">
-                                <label for="logos" class="form-label">Logos</label>
-                                <input type="file" class="form-control" id="logos" multiple>
-                            </div>
-
-                            <div class="col-md-6">
-                                <label for="becas" class="form-label">Becas</label>
-                                <textarea class="form-control" id="becas" rows="2"></textarea>
-                            </div>
-
-                            <div class="col-md-12">
-                                <label for="convocatorias" class="form-label">Convocatorias</label>
-                                <textarea class="form-control" id="convocatorias" rows="2"></textarea>
-                            </div>
-
-                            <h3 class="my-4">Registro de Carreras</h3>
-                            <div id="carrerasContainer">
-                                <div class="carrera-form-container">
-                                    <h4>Detalles de la Carrera</h4>
-                                    <div class="col-md-12">
-                                        <label for="nombreCarrera" class="form-label">Nombre de la Carrera</label>
-                                        <input type="text" class="form-control" name="nombreCarrera[]" required>
+                        <!-- Dashboard Cards -->
+                        <div class="row">
+                            <!-- Estadísticas de Usuarios Registrados -->
+                            <div class="col-md-4 mb-3">
+                                <div class="card shadow-sm">
+                                    <div class="card-header">
+                                        <h5 class="card-title">Estadísticas de Usuarios Registrados</h5>
                                     </div>
-                                    <div class="col-md-12">
-                                        <label for="misionCarrera" class="form-label">Misión</label>
-                                        <textarea class="form-control" name="misionCarrera[]" rows="2"
-                                            required></textarea>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <label for="visionCarrera" class="form-label">Visión</label>
-                                        <textarea class="form-control" name="visionCarrera[]" rows="2"
-                                            required></textarea>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <label for="valoresCarrera" class="form-label">Valores</label>
-                                        <textarea class="form-control" name="valoresCarrera[]" rows="2"
-                                            required></textarea>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <label for="objetivosCarrera" class="form-label">Objetivos</label>
-                                        <textarea class="form-control" name="objetivosCarrera[]" rows="2"
-                                            required></textarea>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <label for="imagenCarrera" class="form-label">Imagen</label>
-                                        <input type="file" class="form-control" name="imagenCarrera[]" required>
+                                    <div class="card-body">
+                                        <p><strong>Usuarios Registrados Este Mes:</strong> 150 usuarios</p>
+                                        <p><strong>Total de Usuarios Registrados:</strong> 1000 usuarios</p>
+                                        <p><strong>Usuarios Activos:</strong> 800 usuarios</p>
+                                        <p><strong>Usuarios Inactivos:</strong> 200 usuarios</p>
+                                        <p><a href="Estadisticas.html" class="btn btn-primary">Ver gestión de usuarios</a></p>
                                     </div>
                                 </div>
                             </div>
-                            <button type="button" class="btn btn-secondary" id="agregarCarrera">Agregar Otra
-                                Carrera</button>
 
-                            <div class="col-12 text-end mt-4">
-                                <button type="submit" class="btn btn-primary">Registrar Universidad</button>
+                            <!-- Número de Visitas a la Web -->
+                            <div class="col-md-4 mb-3">
+                                <div class="card shadow-sm">
+                                    <div class="card-header">
+                                        <h5 class="card-title">Número de Visitas a la Web</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <p><strong>Visitas de Este Mes:</strong> 10,000 visitas</p>
+                                        <p><strong>Visitas Totales:</strong> 50,000 visitas</p>
+                                        <p><strong>Promedio de Visitas Diarias:</strong> 300 visitas</p>
+                                        <p><a href="Estadisticas.html" class="btn btn-primary">Ver análisis completo</a></p>
+                                    </div>
+                                </div>
                             </div>
-                        </form>
+
+                            <div class="col-md-4 mb-3">
+                                <div class="card shadow-sm">
+                                    <div class="card-header">
+                                        <h5 class="card-title">Progreso de Inscripciones del Mes</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <p><strong>Inscripciones Este Mes:</strong> 120 inscripciones</p>
+                                        <p><strong>Total de Inscripciones:</strong> 800 inscripciones</p>
+                                        <p><strong>Formulario Completados:</strong> 200 formularios</p>
+                                        <p><strong>Formulario Incompletos:</strong> 50 formularios</p>
+                                        <p><a href="Estadisticas.html" class="btn btn-primary">Ver más detalles de inscripciones</a></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Usuarios Registrados -->
+                            <div class="col-md-12 mb-3">
+                                <div class="card shadow-sm">
+                                    <div class="card-header bg-dark text-white">
+                                        <h5 class="card-title">Usuarios Registrados</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="text-center">Programas Académicos Más Solicitados</h5>
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Programa Académico</th>
+                                                    <th>Número de Registros</th>
+                                                    <th>Porcentaje de Registros</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Ingeniería Industrial</td>
+                                                    <td>200</td>
+                                                    <td>20%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Medicina</td>
+                                                    <td>180</td>
+                                                    <td>18%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Psicología</td>
+                                                    <td>150</td>
+                                                    <td>15%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Derecho</td>
+                                                    <td>120</td>
+                                                    <td>12%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Administración de Empresas</td>
+                                                    <td>100</td>
+                                                    <td>10%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Diseño Gráfico</td>
+                                                    <td>80</td>
+                                                    <td>8%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Eléctrica</td>
+                                                    <td>170</td>
+                                                    <td>17%</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Total</th>
+                                                    <th>1000</th>
+                                                    <th>100%</th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Gráfica de Usuarios Interesados -->
+                        <div class="col-md-12 mb-3">
+                            <div class="card shadow-sm">
+                                <div class="card-header">
+                                    <h5 class="card-title">Gráfica de Usuarios Interesados</h5>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="usersChart"></canvas>
+                                    <script>
+                                        var ctx = document.getElementById('usersChart').getContext('2d');
+                                        var usersChart = new Chart(ctx, {
+                                            type: 'line',
+                                            data: {
+                                                labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'],
+                                                datasets: [{
+                                                    label: 'Usuarios Registrados',
+                                                    data: [100, 150, 200, 300, 400, 500],
+                                                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                                                    borderColor: 'rgba(75, 192, 192, 1)',
+                                                    borderWidth: 1
+                                                }]
+                                            },
+                                            options: {
+                                                scales: {
+                                                    y: {
+                                                        beginAtZero: true
+                                                    }
+                                                }
+                                            }
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Gráfico de Edad de los Registros -->
+                        <div class="col-md-12 mb-3">
+                            <div class="card shadow-sm">
+                                <div class="card-header">
+                                    <h5 class="card-title">Gráfico de Edad de los Registros</h5>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="donationsChart"></canvas>
+                                    <script>
+                                        var ctx = document.getElementById('donationsChart').getContext('2d');
+                                        var donationsChart = new Chart(ctx, {
+                                            type: 'bar',
+                                            data: {
+                                                labels: ['18', '19', '20', '21', 'Otros'],
+                                                datasets: [{
+                                                    label: 'Edad de los Registros',
+                                                    data: [120, 50, 30, 90, 20],
+                                                    backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                                                    borderColor: 'rgba(153, 102, 255, 1)',
+                                                    borderWidth: 1
+                                                }]
+                                            },
+                                            options: {
+                                                scales: {
+                                                    y: {
+                                                        beginAtZero: true
+                                                    }
+                                                }
+                                            }
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Gráfica de Apartados más Visitados -->
+                        <div class="col-md-12 mb-3">
+                            <div class="card shadow-sm">
+                                <div class="card-header">
+                                    <h5 class="card-title">Gráfica de Apartados más Visitados</h5>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="popularityChart"></canvas>
+                                    <script>
+                                        var ctx = document.getElementById('popularityChart').getContext('2d');
+                                        var popularityChart = new Chart(ctx, {
+                                            type: 'bar',
+                                            data: {
+                                                labels: ['Página Principal', 'Información General', 'Matrícula', 'Galería de Imágenes', '¡Aplica ahora!'],
+                                                datasets: [{
+                                                    label: 'Apartados más Visitados',
+                                                    data: [4.5, 4.2, 3.8, 3.9, 4.1],
+                                                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                                                    borderColor: 'rgba(75, 192, 192, 1)',
+                                                    borderWidth: 1
+                                                }]
+                                            },
+                                            options: {
+                                                scales: {
+                                                    y: {
+                                                        beginAtZero: true,
+                                                        max: 5
+                                                    }
+                                                }
+                                            }
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </main>
         </div>
     </div>
 
-
-
-
     <script>
+
         // Funcionalidad para abrir y cerrar el menú lateral en pantallas pequeñas
         const menuToggle = document.getElementById('menuToggle');
         const sidebar = document.getElementById('sidebar');
-
+    
         menuToggle.addEventListener('click', function () {
             sidebar.classList.toggle('active');
             menuToggle.classList.toggle('active');
         });
-
+    
     </script>
 
-    <script>
-        document.getElementById('agregarCarrera').addEventListener('click', function () {
-            const container = document.getElementById('carrerasContainer');
-            const nuevaCarrera = container.firstElementChild.cloneNode(true);
-            container.appendChild(nuevaCarrera);
-        });
-    </script>
+    <script src="bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
