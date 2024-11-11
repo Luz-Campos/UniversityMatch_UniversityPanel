@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./assets/css/formulario.css">
+    <title>Login - University Match</title>
+</head>
+
+<body class="d-flex flex-column align-items-center justify-content-center vh-100" style="background-color: #2c2c2c;">
+
+    <!-- Imagen y formulario de inicio de sesión -->
+    <div class="card" style="width: 25rem; background-color: #3a3a3a; color: #ddd; border-color: #444;">
+        <div class="card-body">
+            <div class="text-center">
+                <img src="./assets/img/logo2.png" alt="Logo de University Match" class="img-fluid mb-3"
+                    style="max-width: 260px;">
+            </div>
+
+            <form id="loginForm" onsubmit="return login()">
+                <div class="mb-3">
+                    <label for="username" class="form-label" style="color: #fff;">Nombre de Usuario</label>
+                    <input type="text" class="form-control" id="username" required style="background-color: #4a4a4a; color: #fff; border-color: #555;">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label" style="color: #fff;">Contraseña</label>
+                    <input type="password" class="form-control" id="password" required style="background-color: #4a4a4a; color: #fff; border-color: #555;">
+                </div>
+                <button type="submit" class="btn btn-dark w-100" style="background-color: #1a1a1a; border-color: #333;">Iniciar Sesión</button>
+            </form>
+            <div id="error" class="text-danger mt-2" style="display:none;"></div>
+        </div>
+    </div>
+
+    <!-- Footer de texto -->
+    <div class="text-center mt-3" style="color: #aaa; font-size: 0.9rem;">
+        © 2024 University Match. Todos los derechos reservados.
+    </div>
+
+    <script>
+        // Manejo del inicio de sesión
+        function login() {
+            // Redirigir al panel de administración sin validación
+            window.location.href = 'dashboard.html'; // Cambia esto a la ruta correcta de tu dashboard
+            return false; // Prevenir el envío del formulario
+        }
+    </script>
+</body>
+
+</html>

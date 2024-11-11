@@ -1,0 +1,61 @@
+/* Aseguramos que el body y html ocupen todo el espacio */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Evitar desplazamiento horizontal */
+}
+
+/* Fondo oscuro y sin márgenes en body */
+body {
+  background-color: #1a2a3a;
+}
+
+/* Estilos generales para los títulos */
+h2,
+h4 {
+  margin-top: 20px;
+}
+
+/* Contenedor de los gráficos */
+.chart-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+}
+
+/* Sidebar con margen superior */
+.sidebar {
+  padding-top: 20px;
+}
+
+/* Estilo de los links en el sidebar */
+.nav-link {
+  color: #333;
+}
+
+/* Estilo de los links activos */
+.nav-link.active {
+  font-weight: bold;
+}
+
+/* Titulo principal */
+.titulo {
+  margin-top: 3rem;
+  font-size: 2rem;
+  color: #343a40; /* Color oscuro para los títulos */
+  font-weight: 600;
+  margin-bottom: 20px; /* Espaciado debajo del título */
+  padding-bottom: 5px;
+}
+
+/* Contenido principal con scroll */
+main {
+  background-color: #f1f1f1; /* Fondo claro para el contenido principal */
+  padding: 20px;
+  overflow-y: auto; /* Permitir el desplazamiento vertical */
+  height: calc(
+    100vh - 80px
+  ); /* Asegura que el main ocupe toda la pantalla menos el encabezado */
+}

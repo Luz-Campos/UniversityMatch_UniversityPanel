@@ -1,0 +1,85 @@
+/* main-styles.css */
+
+/* Estilo general para el contenedor principal */
+main {
+    background-color: #f8f9fa; /* Fondo gris claro */
+    padding: 30px; /* Espaciado en todo el contenedor */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+
+/* Filtros de búsqueda (fecha y estatus) */
+.main .input-group {
+    border-radius: 5px;
+}
+
+.main .input-group input, .main .input-group select {
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #ced4da; /* Bordes suaves */
+}
+
+.main .input-group input:focus, .main .input-group select:focus {
+    border-color: #007bff; /* Color del borde en foco */
+    box-shadow: 0 0 0 0.25rem rgba(38, 143, 255, 0.25); /* Sombra en foco */
+}
+
+/* Tabla de órdenes */
+table.table {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 8px; /* Bordes redondeados */
+    border-collapse: collapse; /* Colapsa las celdas para mejorar la apariencia */
+    margin-top: 20px;
+}
+
+table.table th, table.table td {
+    padding: 12px 15px;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid #e0e0e0; /* Separadores entre filas */
+}
+
+table.table th {
+    background-color: #007bff;
+    color: #fff; /* Fondo azul y texto blanco en los encabezados */
+}
+
+table.table tbody tr:hover {
+    background-color: #f1f1f1; /* Color de fondo al pasar el ratón */
+}
+
+table.table td select, table.table td button {
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: none;
+}
+
+table.table td button {
+    background-color: #ffc107; /* Botones amarillos */
+    color: #fff;
+    cursor: pointer;
+}
+
+table.table td button:hover {
+    background-color: #e0a800; /* Cambio de color al pasar el ratón */
+}
+
+/* Filtros y tabla en el contenedor */
+#ordenes .row {
+    margin-bottom: 20px;
+}
+
+#ordenes .table-responsive {
+    overflow-x: auto;
+}
+
+/* Añadir estilos de espaciado general para la página */
+.container {
+    margin-top: 20px;
+}
+
+.titulo{
+    margin-top: 0px !important;
+}

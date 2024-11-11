@@ -1,0 +1,78 @@
+/* Asegúrate de que los estilos se carguen correctamente en tu proyecto */
+main {
+    background-color: #f9f9f9; /* Fondo suave */
+
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    margin: 20px auto;
+    max-width: 1000px; /* Limitar el ancho en pantallas grandes */
+    overflow: hidden; /* Evitar desbordamiento */
+}
+
+h2 {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333; /* Color de texto elegante */
+    text-align: center; /* Centrar títulos */
+}
+
+h4 {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #555; /* Color de subtítulos */
+    text-align: left; /* Alinear subtítulos */
+}
+
+.chart-container {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra ligera */
+}
+
+p.text-muted {
+    font-size: 0.9em;
+    color: #888;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    main {
+        padding: 15px;
+        margin: 10px;
+    }
+
+    h2 {
+        font-size: 1.6em;
+    }
+
+    h4 {
+        font-size: 1.2em;
+    }
+
+    .chart-container {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    main {
+        padding: 10px;
+        margin: 5px;
+    }
+
+    h2 {
+        font-size: 1.4em;
+    }
+
+    h4 {
+        font-size: 1em;
+    }
+
+    .chart-container {
+        padding: 8px;
+    }
+}

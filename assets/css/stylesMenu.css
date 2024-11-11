@@ -1,0 +1,153 @@
+/* stylesMenu.css*/
+
+body {
+  overflow-x: hidden; /* Evitar el desplazamiento horizontal */
+}
+
+#sidebar {
+  background-color: #1a2a3a;
+  height: 100vh;
+  padding-top: 2rem;
+  transition: transform 0.4s ease; /* Transición suave */
+  box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+/* Sidebar oculto inicialmente solo en pantallas pequeñas */
+@media (max-width: 767px) {
+  #sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+    transform: translateX(-100%); /* Oculto en pantallas pequeñas */
+  }
+
+  /* Sidebar visible al añadir la clase .active en pantallas pequeñas */
+  #sidebar.active {
+    transform: translateX(0); /* Mostrar el menú */
+  }
+}
+
+/* Estilo del menú y sus enlaces */
+#sidebar .nav-link {
+  padding: 0.75rem 1rem;
+  color: #c0c0c0;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  font-size: 0.7rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-item {
+  padding: 8px;
+}
+
+#sidebar .nav-link:hover {
+  color: #ffffff;
+  transform: scale(1.05);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+#sidebar .nav-link.active {
+  background-color: #00a5fe;
+  color: #ffffff;
+  transform: scale(1.05);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+#sidebar .nav-link i {
+  margin-right: 10px;
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+#sidebar .nav-link:hover i,
+#sidebar .nav-link.active i {
+  transform: scale(1.1);
+}
+
+/* Estilo para el botón de menú hamburguesa */
+.navbar-toggler {
+  border: none;
+  background: transparent;
+  display: none; /* Oculto por defecto en pantallas grandes */
+}
+
+.navbar-toggler .fa-bars {
+  font-size: 24px;
+  color: #333;
+  transition: transform 0.3s ease;
+}
+
+/* Efecto de giro al hacer clic en el botón */
+.navbar-toggler.active .fa-bars {
+  transform: rotate(90deg);
+}
+
+/* Fondo del header */
+.fondoheader {
+  background-color: #fdfdfd;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9); /* Sombra inferior suave */
+}
+
+.m-0 {
+  color: #1a2a3a;
+}
+
+/* Responsivo: mostrar el botón hamburguesa y ocultar el sidebar solo en pantallas pequeñas */
+@media (max-width: 767px) {
+  #menuToggle {
+    display: block; /* Mostrar el botón de hamburguesa en pantallas pequeñas */
+  }
+
+  /* Sidebar oculto inicialmente en pantallas pequeñas */
+  #sidebar {
+    display: block;
+  }
+
+  #sidebar.active {
+    display: block;
+    transform: translateX(0); /* Mostrar el menú en pantallas pequeñas */
+  }
+
+  .header-title {
+    display: none; /* Ocultar el título en pantallas pequeñas */
+  }
+
+  .logo img {
+    max-height: 40px; /* Ajustar el tamaño del logo en pantallas pequeñas */
+  }
+}
+
+/* Responsivo: esconder el botón de hamburguesa en pantallas grandes */
+@media (min-width: 768px) {
+  #menuToggle {
+    display: none; /* Ocultar el botón de hamburguesa en pantallas grandes */
+  }
+
+  .header-title {
+    display: block; /* Mostrar el título en pantallas grandes */
+  }
+
+  .logo img {
+    max-height: 60px; /* Ajustar el tamaño del logo en pantallas grandes */
+  }
+}
+
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Responsivo: esconder el botón de hamburguesa en pantallas grandes */
+@media (min-width: 576px) {
+  .ms-sm-auto {
+    margin-left: 0px !important;
+  }
+}
