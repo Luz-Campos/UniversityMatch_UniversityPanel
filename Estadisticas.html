@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./assets/css/stylesMenu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Estadísticas</title>
+    <link rel="stylesheet" href="./assets/css/Esta.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Header con Logotipo y el botón hamburguesa para móviles -->
+            <header class="col-12 d-flex justify-content-between align-items-center p-3 fondoheader">
+                <div class="logo">
+                    <a href="dashboard.html">
+                        <img src="./assets/img/logo.jpg" alt="Logo" class="img-fluid" style="max-height: 50px;">
+                    </a>
+                </div>
+                <div class="header-title text-white">
+                    <h5 class="m-0">University Match - Panel de Universidades</h5>
+                </div>
+                <button class="navbar-toggler" type="button" id="menuToggle" aria-expanded="false">
+                    <span class="navbar-toggler-icon"><i class="fa-solid fa-bars"></i></span>
+                </button>
+            </header>
+
+            <!-- Sidebar -->
+            <nav id="sidebar" class="col-md-2 d-md-block sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="dashboard.html">
+                                <i class="fas fa-tachometer-alt"></i> Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="universidades.html">
+                                <i class="fa-solid fa-school"></i> Universidades
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="cursos.html">
+                                <i class="fas fa-clipboard-list"></i> Cursos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="Estadisticas.html">
+                                <i class="fas fa-chart-pie"></i> Estadísticas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Bitacora.html">
+                                <i class="fas fa-book"></i> Bitácora de Movimientos
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main role="main" class="col-md-9 ms-sm-auto col-lg-10 px-4">
+                <div class="container">
+                    <div class="row" id="estadisticas">
+                        <h2>Estadísticas Generales de la Universidad</h2>
+
+                        <!-- Universidades más visitadas (Cambio de título a 'Mis Carreras más visitados') -->
+                        <div class="col-md-6 mt-4">
+                            <h4>Carreras Más Visitados</h4>
+                            <div class="chart-container">
+                                <canvas id="cursosVisitadosChart"></canvas>
+                            </div>
+                            <p class="text-muted mt-2">Esta gráfica muestra los carreras más visitados por los estudiantes dentro de tu universidad.</p>
+                        </div>
+
+                        <!-- Universidades menos visitadas (Cambio de título a 'Mis Carreras menos visitados') -->
+                        <div class="col-md-6 mt-4">
+                            <h4>Carreras Menos Visitados</h4>
+                            <div class="chart-container">
+                                <canvas id="cursosMenosVisitadosChart"></canvas>
+                            </div>
+                            <p class="text-muted mt-2">Aquí se destacan los carreras con menor cantidad de visitas, lo que podría indicar falta de interés o visibilidad.</p>
+                        </div>
+
+                        <!-- Productos más donados (Cambio a 'Apartados más solicitados') -->
+                        <div class="col-md-6 mt-4">
+                            <h4>Apartados Más Solicitados</h4>
+                            <div class="chart-container">
+                                <canvas id="recursosSolicitadosChart"></canvas>
+                            </div>
+                            <p class="text-muted mt-2">Esta gráfica refleja los apartados más solicitados por los estudiantes dentro de tu universidad.</p>
+                        </div>
+
+                        <!-- Productos menos donados (Cambio a 'Apartados menos solicitados') -->
+                        <div class="col-md-6 mt-4">
+                            <h4>Apartados Menos Solicitados</h4>
+                            <div class="chart-container">
+                                <canvas id="recursosMenosSolicitadosChart"></canvas>
+                            </div>
+                            <p class="text-muted mt-2">Muestra los apartados que han recibido menos solicitudes, lo que podría sugerir que no son de interés o relevancia.</p>
+                        </div>
+
+                        <!-- Categorías más buscadas (Cambio a 'Áreas de estudio más solicitadas') -->
+                        <div class="col-md-6 mt-4">
+                            <h4>Áreas de Estudio Más Solicitadas</h4>
+                            <div class="chart-container2">
+                                <canvas id="areasEstudioSolicitadasChart"></canvas>
+                            </div>
+                            <p class="text-muted mt-2">Un vistazo a las áreas de estudio más solicitadas por los estudiantes, indicando las tendencias y preferencias académicas.</p>
+                        </div>
+
+                        <!-- Categorías menos buscadas (Cambio a 'Áreas de estudio menos solicitadas') -->
+                        <div class="col-md-6 mt-4">
+                            <h4>Áreas de Estudio Menos Solicitadas</h4>
+                            <div class="chart-container2">
+                                <canvas id="areasEstudioMenosSolicitadasChart"></canvas>
+                            </div>
+                            <p class="text-muted mt-2">Presenta las áreas de estudio con menor interés por parte de los estudiantes, lo que podría ser útil para reajustes en la oferta educativa.</p>
+                        </div>
+
+                        <!-- Usuarios con más adquisiciones (Cambio a 'Estudiantes más activos') -->
+                        <div class="col-md-6 mt-4">
+                            <h4>Estudiantes Más Activos</h4>
+                            <div class="chart-container">
+                                <canvas id="estudiantesActivosChart"></canvas>
+                            </div>
+                            <p class="text-muted mt-2">Aquí se visualizan los estudiantes con mayor número de interacciones, inscripciones o adquisiciones en la plataforma.</p>
+                        </div>
+
+                        <!-- Usuarios con menos adquisiciones (Cambio a 'Estudiantes menos activos') -->
+                        <div class="col-md-6 mt-4">
+                            <h4>Estudiantes Menos Activos</h4>
+                            <div class="chart-container">
+                                <canvas id="estudiantesMenosActivosChart"></canvas>
+                            </div>
+                            <p class="text-muted mt-2">Muestra a los estudiantes con menos interacciones, útil para identificar áreas de mejora en el proceso de matrícula o engagement.</p>
+                        </div>
+
+                        <!-- Visitantes por período (Cambio a 'Visitantes por Período en mi Universidad') -->
+                        <div class="col-md-6 mt-4">
+                            <h4>Visitantes por Período en Mi Universidad</h4>
+                            <div class="chart-container">
+                                <canvas id="visitantesUniversidadChart"></canvas>
+                            </div>
+                            <p class="text-muted mt-2">Esta gráfica detalla el número de visitantes en tu universidad por período, mostrando tendencias y patrones de tráfico.</p>
+                        </div>
+
+                        <!-- Productos donados por período (Cambio a 'Apartados solicitados por período') -->
+                        <div class="col-md-6 mt-4">
+                            <h4>Apartados Solicitados por Período</h4>
+                            <div class="chart-container">
+                                <canvas id="recursosSolicitadosPeriodoChart"></canvas>
+                            </div>
+                            <p class="text-muted mt-2">Ilustra la cantidad de apartados solicitados en diferentes períodos, destacando cambios y patrones en las solicitudes de los estudiantes.</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+    // Aquí se mantienen los datos de las gráficas, solo con nuevos nombres de variables y títulos
+    const cursosVisitadosChart = new Chart(document.getElementById('cursosVisitadosChart').getContext('2d'), {
+        type: 'bar',
+        data: {
+            labels: ['Curso A', 'Curso B', 'Curso C'],
+            datasets: [{
+                label: 'Visitas',
+                data: [120, 100, 80],
+                backgroundColor: ['#007bff', '#dc3545', '#ffc107'],
+            }]
+        },
+        options: { scales: { y: { beginAtZero: true } } }
+    });
+
+    const cursosMenosVisitadosChart = new Chart(document.getElementById('cursosMenosVisitadosChart').getContext('2d'), {
+        type: 'bar',
+        data: {
+            labels: ['Curso D', 'Curso E', 'Curso F'],
+            datasets: [{
+                label: 'Visitas',
+                data: [10, 5, 2],
+                backgroundColor: ['#28a745', '#17a2b8', '#ffc107'],
+            }]
+        },
+        options: { scales: { y: { beginAtZero: true } } }
+    });
+
+    const recursosSolicitadosChart = new Chart(document.getElementById('recursosSolicitadosChart').getContext('2d'), {
+        type: 'bar',
+        data: {
+            labels: ['Recurso G', 'Recurso H', 'Recurso I'],
+            datasets: [{
+                label: 'Solicitudes',
+                data: [50, 40, 30],
+                backgroundColor: ['#007bff', '#dc3545', '#ffc107'],
+            }]
+        },
+        options: { scales: { y: { beginAtZero: true } } }
+    });
+
+    const recursosMenosSolicitadosChart = new Chart(document.getElementById('recursosMenosSolicitadosChart').getContext('2d'), {
+        type: 'bar',
+        data: {
+            labels: ['Recurso J', 'Recurso K', 'Recurso L'],
+            datasets: [{
+                label: 'Solicitudes',
+                data: [5, 3, 1],
+                backgroundColor: ['#28a745', '#17a2b8', '#ffc107'],
+            }]
+        },
+        options: { scales: { y: { beginAtZero: true } } }
+    });
+
+    const areasEstudioSolicitadasChart = new Chart(document.getElementById('areasEstudioSolicitadasChart').getContext('2d'), {
+        type: 'pie',
+        data: {
+            labels: ['Área A', 'Área B', 'Área C'],
+            datasets: [{
+                data: [45, 35, 20],
+                backgroundColor: ['#007bff', '#dc3545', '#ffc107'],
+            }]
+        },
+        options: { responsive: true }
+    });
+
+    const areasEstudioMenosSolicitadasChart = new Chart(document.getElementById('areasEstudioMenosSolicitadasChart').getContext('2d'), {
+        type: 'pie',
+        data: {
+            labels: ['Área D', 'Área E', 'Área F'],
+            datasets: [{
+                data: [10, 5, 2],
+                backgroundColor: ['#28a745', '#17a2b8', '#ffc107'],
+            }]
+        },
+        options: { responsive: true }
+    });
+
+    const estudiantesActivosChart = new Chart(document.getElementById('estudiantesActivosChart').getContext('2d'), {
+        type: 'line',
+        data: {
+            labels: ['Estudiante X', 'Estudiante Y', 'Estudiante Z'],
+            datasets: [{
+                label: 'Interacciones',
+                data: [10, 8, 7],
+                borderColor: '#007bff',
+                backgroundColor: 'rgba(0,123,255,0.5)',
+            }]
+        },
+        options: { scales: { y: { beginAtZero: true } } }
+    });
+
+    const estudiantesMenosActivosChart = new Chart(document.getElementById('estudiantesMenosActivosChart').getContext('2d'), {
+        type: 'line',
+        data: {
+            labels: ['Estudiante A', 'Estudiante B', 'Estudiante C'],
+            datasets: [{
+                label: 'Interacciones',
+                data: [1, 2, 3],
+                borderColor: '#28a745',
+                backgroundColor: 'rgba(40,167,69,0.5)',
+            }]
+        },
+        options: { scales: { y: { beginAtZero: true } } }
+    });
+
+    const visitantesUniversidadChart = new Chart(document.getElementById('visitantesUniversidadChart').getContext('2d'), {
+        type: 'line',
+        data: {
+            labels: ['Enero', 'Febrero', 'Marzo', 'Abril'],
+            datasets: [{
+                label: 'Visitantes',
+                data: [200, 180, 220, 250],
+                borderColor: '#dc3545',
+                backgroundColor: 'rgba(220,53,69,0.5)',
+            }]
+        },
+        options: { scales: { y: { beginAtZero: true } } }
+    });
+
+    const recursosSolicitadosPeriodoChart = new Chart(document.getElementById('recursosSolicitadosPeriodoChart').getContext('2d'), {
+        type: 'bar',
+        data: {
+            labels: ['Trimestre 1', 'Trimestre 2', 'Trimestre 3', 'Trimestre 4'],
+            datasets: [{
+                label: 'Apartados Solicitados',
+                data: [150, 180, 200, 170],
+                backgroundColor: ['#007bff', '#28a745', '#ffc107', '#17a2b8'],
+            }]
+        },
+        options: { scales: { y: { beginAtZero: true } } }
+    });
+    </script>
+
+    <script>
+    // Funcionalidad para abrir y cerrar el menú lateral en pantallas pequeñas
+    const menuToggle = document.getElementById('menuToggle');
+    const sidebar = document.getElementById('sidebar');
+
+    menuToggle.addEventListener('click', function () {
+        sidebar.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+    });
+    </script>
+
+    <script src="bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

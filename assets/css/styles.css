@@ -20,9 +20,21 @@ h4 {
 
 /* Contenedor de los gráficos */
 .chart-container {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 260px;
+  justify-content: center;
+  align-items: center;
+}
+
+.chart-container2 {
+  display: flex;
   position: relative;
   width: 100%;
   height: 400px;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Sidebar con margen superior */
@@ -48,6 +60,7 @@ h4 {
   font-weight: 600;
   margin-bottom: 20px; /* Espaciado debajo del título */
   padding-bottom: 5px;
+  text-align: center;
 }
 
 /* Contenido principal con scroll */
@@ -58,4 +71,14 @@ main {
   height: calc(
     100vh - 80px
   ); /* Asegura que el main ocupe toda la pantalla menos el encabezado */
+}
+
+/* Estilos para las filas de la tabla */
+table#bitacoraTable tbody tr:nth-child(odd) {
+  background-color: #ffffff !important; /* Blanco */
+}
+
+table#bitacoraTable tbody tr:nth-child(even) {
+  background-color: #238ac7 !important; /* Azul */
+  color: #fff !important; /* Texto blanco para las filas azules */
 }
